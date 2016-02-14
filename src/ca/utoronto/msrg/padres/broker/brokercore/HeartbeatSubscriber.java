@@ -102,7 +102,7 @@ public class HeartbeatSubscriber extends Thread {
 							// clear failure if necessary
 							if (event != null) {
 								String broker = (String) event.getAttachment();
-								Map<MessageDestination, OutputQueue> neighbors2 = m_BrokerCore.getOverlayManager().getORT().getBrokerQueues();
+								Map<MessageDestination, OutputQueueHandler> neighbors2 = m_BrokerCore.getOverlayManager().getORT().getBrokerQueues();
 								synchronized (neighbors2) {
 									for (MessageDestination md : neighbors2.keySet()) {
 										if (md.getDestinationID().equals(broker)) {

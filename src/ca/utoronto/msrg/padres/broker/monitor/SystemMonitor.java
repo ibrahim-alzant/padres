@@ -33,7 +33,7 @@ import javax.swing.Timer;
 import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
-import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueueHandler;
 import ca.utoronto.msrg.padres.broker.controller.OverlayRoutingTable;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
 import ca.utoronto.msrg.padres.common.message.Advertisement;
@@ -538,7 +538,7 @@ public class SystemMonitor extends Thread {
 	 */
 	public Set<MessageDestination> getNeighbours() {
 		Set<MessageDestination> neighborSet = Collections.synchronizedSet(new HashSet<MessageDestination>());
-		Map<MessageDestination, OutputQueue> origSet = brokerCore.getOverlayManager().getORT().getBrokerQueues();
+		Map<MessageDestination, OutputQueueHandler> origSet = brokerCore.getOverlayManager().getORT().getBrokerQueues();
 		synchronized (origSet) {
 			for (MessageDestination dest : origSet.keySet()) {
 				neighborSet.add(dest);
@@ -649,7 +649,7 @@ public class SystemMonitor extends Thread {
 			// Send the neighbours that the broker is going to shutdown, and update
 			// neighbours'ORT
 			OverlayRoutingTable ORT = brokerCore.getOverlayManager().getORT();
-			Map<MessageDestination, OutputQueue> neighbours = ORT.getBrokerQueues();
+			Map<MessageDestination, OutputQueueHandler> neighbours = ORT.getBrokerQueues();
 	
 			systemMonitorLogger.debug("Notify the neighbours that the broker is going to shutdown.");
 			synchronized (neighbours) {

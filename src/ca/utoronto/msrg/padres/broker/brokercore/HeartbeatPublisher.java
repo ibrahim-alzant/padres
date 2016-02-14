@@ -118,7 +118,7 @@ public class HeartbeatPublisher extends Thread implements TimerClient {
 							String broker = (String) event.getAttachment();
 
 							// a broker heartbeat timed out, increment the fail count
-							Map<MessageDestination, OutputQueue> neighbors1 = m_BrokerCore.getOverlayManager().getORT().getBrokerQueues();
+							Map<MessageDestination, OutputQueueHandler> neighbors1 = m_BrokerCore.getOverlayManager().getORT().getBrokerQueues();
 							synchronized (neighbors1) {
 								for (MessageDestination md : neighbors1.keySet()) {
 									if (md.getDestinationID().equals(broker)) {
@@ -193,7 +193,7 @@ public class HeartbeatPublisher extends Thread implements TimerClient {
 
 	private void publishHeartbeats() {
 		try {
-			Map<MessageDestination, OutputQueue> neighbors = m_BrokerCore.getOverlayManager().getORT().getBrokerQueues();
+			Map<MessageDestination, OutputQueueHandler> neighbors = m_BrokerCore.getOverlayManager().getORT().getBrokerQueues();
 			synchronized (neighbors) {
 				for (MessageDestination md : neighbors.keySet()) {
 					String brokerID = md.getDestinationID();

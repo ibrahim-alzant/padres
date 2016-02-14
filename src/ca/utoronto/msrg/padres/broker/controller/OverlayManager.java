@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCoreException;
-import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueueHandler;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.ConnectionListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
@@ -120,7 +120,7 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 									+ " as new neighbour into ORT.");
 							MessageDestination remoteDest = new MessageDestination(toBrokerID,
 									DestinationType.BROKER);
-							OutputQueue remoteOutputQueue = createOutputQueue(remoteDest, msgSender);
+							OutputQueueHandler remoteOutputQueue = createOutputQueue(remoteDest, msgSender);
 							routingTable.addBroker(remoteOutputQueue);
 							brokerCore.registerQueue(remoteOutputQueue);
 							remoteOutputQueue.start();
@@ -161,7 +161,7 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 								+ " did not match the ID given by the remote server " + remoteID);
 					// add to the overlay routing table
 					overlayLogger.info("Adding broker " + remoteID + " as new neighbour into ORT.");
-					OutputQueue remoteOutputQueue = createOutputQueue(remoteDest, msgSender);
+					OutputQueueHandler remoteOutputQueue = createOutputQueue(remoteDest, msgSender);
 					routingTable.addBroker(remoteOutputQueue);
 					brokerCore.registerQueue(remoteOutputQueue);
 					remoteOutputQueue.start();
@@ -330,9 +330,9 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 	 */
 	private void stopOutputQueues() {
 		overlayLogger.debug("Stopping output queues");
-		Map<MessageDestination, OutputQueue> neighbours = routingTable.getBrokerQueues();
+		Map<MessageDestination, OutputQueueHandler> neighbours = routingTable.getBrokerQueues();
 		synchronized (neighbours) {
-			for (OutputQueue outQueue : neighbours.values()) {
+			for (OutputQueueHandler outQueue : neighbours.values()) {
 				overlayLogger.debug("Stopping output queue for destination : "
 						+ outQueue.getDestination());
 				outQueue.stopOperation();
@@ -345,9 +345,9 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 	 */
 	private void resumeOutputQueues() {
 		overlayLogger.debug("Resuming output queues.");
-		Map<MessageDestination, OutputQueue> neighbours = routingTable.getBrokerQueues();
+		Map<MessageDestination, OutputQueueHandler> neighbours = routingTable.getBrokerQueues();
 		synchronized (neighbours) {
-			for (OutputQueue outQueue : neighbours.values()) {
+			for (OutputQueueHandler outQueue : neighbours.values()) {
 				overlayLogger.debug("Resuming output queue for destination : "
 						+ outQueue.getDestination());
 				outQueue.resumeOperation();
@@ -360,9 +360,9 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 	 */
 	private void shutdownOutputQueues() {
 		overlayLogger.debug("Shutting down output queues.");
-		Map<MessageDestination, OutputQueue> neighbours = routingTable.getBrokerQueues();
+		Map<MessageDestination, OutputQueueHandler> neighbours = routingTable.getBrokerQueues();
 		synchronized (neighbours) {
-			for (OutputQueue outQueue : neighbours.values()) {
+			for (OutputQueueHandler outQueue : neighbours.values()) {
 				overlayLogger.debug("Shutting down output queue for destination : "
 						+ outQueue.getDestination());
 				outQueue.shutdown();
@@ -371,7 +371,7 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 		
 		neighbours = routingTable.getClientQueues();
 		synchronized (neighbours) {
-			for (OutputQueue outQueue : neighbours.values()) {
+			for (OutputQueueHandler outQueue : neighbours.values()) {
 				overlayLogger.debug("Shutting down output queue for destination : "
 						+ outQueue.getDestination());
 				outQueue.shutdown();
@@ -383,7 +383,7 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 	public void connectionMade(MessageDestination clientDest, MessageSender msgSender) {
 		/* Add the client to the overlay network */
 		overlayLogger.info("Add client : " + clientDest + " as new client into ORT.");
-		OutputQueue clientQueue = createOutputQueue(clientDest, msgSender);
+		OutputQueueHandler clientQueue = createOutputQueue(clientDest, msgSender);
 		routingTable.addClient(clientQueue);
 		clientQueue.start();
 		brokerCoreLogger.info(String.format("Client %s established a connection", clientDest));
@@ -397,9 +397,9 @@ public class OverlayManager implements Manager, ConnectionListenerInterface {
 		brokerCore.removeQueue(clientDest);
 	}
 
-	protected OutputQueue createOutputQueue(MessageDestination clientDest,
+	protected OutputQueueHandler createOutputQueue(MessageDestination clientDest,
 			MessageSender msgSender) {
-		return new OutputQueue(clientDest, msgSender);
+		return new OutputQueueHandler(clientDest, msgSender);
 	}
 
 	@Override

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueueHandler;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 import ca.utoronto.msrg.padres.common.message.MessageDestination.DestinationType;
 
@@ -32,21 +32,21 @@ public class OverlayRoutingTable {
 
 	private Map<MessageDestination, LinkInfo> statisticTable;
 
-	private Map<MessageDestination, OutputQueue> brokerQueues;
+	private Map<MessageDestination, OutputQueueHandler> brokerQueues;
 
-	private Map<MessageDestination, OutputQueue> clientQueues;
+	private Map<MessageDestination, OutputQueueHandler> clientQueues;
 
 	public OverlayRoutingTable() {
 		statisticTable = Collections.synchronizedMap(new HashMap<MessageDestination, LinkInfo>());
-		brokerQueues = Collections.synchronizedMap(new HashMap<MessageDestination, OutputQueue>());
-		clientQueues = Collections.synchronizedMap(new HashMap<MessageDestination, OutputQueue>());
+		brokerQueues = Collections.synchronizedMap(new HashMap<MessageDestination, OutputQueueHandler>());
+		clientQueues = Collections.synchronizedMap(new HashMap<MessageDestination, OutputQueueHandler>());
 	}
 
-	public synchronized Map<MessageDestination, OutputQueue> getBrokerQueues() {
+	public synchronized Map<MessageDestination, OutputQueueHandler> getBrokerQueues() {
 		return brokerQueues;
 	}
 	
-	public synchronized Map<MessageDestination, OutputQueue> getClientQueues() {
+	public synchronized Map<MessageDestination, OutputQueueHandler> getClientQueues() {
 		return clientQueues;
 	}
 	
@@ -62,19 +62,19 @@ public class OverlayRoutingTable {
 		return statisticTable;
 	}
 
-	public synchronized void addBroker(OutputQueue neighbourQueue) {
+	public synchronized void addBroker(OutputQueueHandler neighbourQueue) {
 		statisticTable.put(neighbourQueue.getDestination(), new LinkInfo());
 		brokerQueues.put(neighbourQueue.getDestination(), neighbourQueue);
 	}
 
 	public synchronized void removeBroker(MessageDestination neighbour) {
-		OutputQueue queue = brokerQueues.remove(neighbour);
+		OutputQueueHandler queue = brokerQueues.remove(neighbour);
 		if(queue != null)
 			queue.shutdown();
 		statisticTable.remove(neighbour);
 	}
 
-	public synchronized OutputQueue getOutputQueue(MessageDestination remoteDest) {
+	public synchronized OutputQueueHandler getOutputQueue(MessageDestination remoteDest) {
 		return brokerQueues.get(remoteDest);
 	}
 
@@ -102,13 +102,13 @@ public class OverlayRoutingTable {
 		return clientQueues.size();
 	}
 
-	public synchronized OutputQueue addClient(OutputQueue newClientQueue) {
+	public synchronized OutputQueueHandler addClient(OutputQueueHandler newClientQueue) {
 		clientQueues.put(newClientQueue.getDestination(), newClientQueue);
 		return newClientQueue;
 	}
 
 	public synchronized void removeClient(MessageDestination clientDest) {
-		OutputQueue queue = clientQueues.remove(clientDest);
+		OutputQueueHandler queue = clientQueues.remove(clientDest);
 		
 		if(queue != null)
 			queue.shutdown();

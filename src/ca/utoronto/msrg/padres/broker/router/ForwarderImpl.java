@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerConfig.CycleType;
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
-import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueueHandler;
 import ca.utoronto.msrg.padres.broker.controller.LinkInfo;
 import ca.utoronto.msrg.padres.broker.controller.OverlayManager;
 import ca.utoronto.msrg.padres.broker.controller.OverlayRoutingTable;
@@ -252,7 +252,7 @@ public class ForwarderImpl implements Forwarder {
 		OverlayManager overlayManager = brokerCore.getOverlayManager();
 		if (overlayManager != null) {
 			OverlayRoutingTable ORT = overlayManager.getORT();
-			Map<MessageDestination, OutputQueue> neighbours = ORT.getBrokerQueues();
+			Map<MessageDestination, OutputQueueHandler> neighbours = ORT.getBrokerQueues();
 			routerLogger.debug("Adding broadcast advertisement to messagesToRoute.");
 			synchronized (neighbours) {
 				for (MessageDestination nextHopID : neighbours.keySet()) {
@@ -318,7 +318,7 @@ public class ForwarderImpl implements Forwarder {
 		String advMessageID = m.getUnadvertisement().getAdvID();
 		// Broadcast unadvertisement
 		OverlayRoutingTable ORT = brokerCore.getOverlayManager().getORT();
-		Map<MessageDestination, OutputQueue> neighbours = ORT.getBrokerQueues();
+		Map<MessageDestination, OutputQueueHandler> neighbours = ORT.getBrokerQueues();
 
 		routerLogger.debug("Adding broadcast unadvertisement to messagesToRoute.");
 		for (MessageDestination nextHopID : neighbours.keySet()) {

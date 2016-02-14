@@ -367,7 +367,7 @@ public class BrokerCore {
 			public void actionPerformed(ActionEvent evt) {
 				OverlayRoutingTable ort = getOverlayManager().getORT();
 				Map<MessageDestination, LinkInfo> statisticTable = ort.getStatisticTable();
-				Map<MessageDestination, OutputQueue> neighbors = ort.getBrokerQueues();
+				Map<MessageDestination, OutputQueueHandler> neighbors = ort.getBrokerQueues();
 				synchronized (neighbors) {
 					for (MessageDestination temp : neighbors.keySet()) {
 						if (statisticTable.containsKey(temp)) {

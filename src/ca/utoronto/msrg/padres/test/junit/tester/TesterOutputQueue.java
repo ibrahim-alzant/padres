@@ -1,7 +1,7 @@
 package ca.utoronto.msrg.padres.test.junit.tester;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
-import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueueHandler;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
@@ -16,7 +16,7 @@ import ca.utoronto.msrg.padres.common.message.MessageDestination;
  * Created: July 26, 2011
  *
  */
-class TesterOutputQueue extends OutputQueue {
+class TesterOutputQueue extends OutputQueueHandler {
 
 	public final IBrokerTester _brokerTester;
 	public final String _brokerURI;

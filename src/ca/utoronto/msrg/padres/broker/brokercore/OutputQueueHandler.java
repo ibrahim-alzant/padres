@@ -20,7 +20,7 @@ import ca.utoronto.msrg.padres.common.message.MessageDestination;
  *         contains a MessageSender using which the messages are sent out
  * 
  */
-public class OutputQueue extends QueueHandler {
+public class OutputQueueHandler extends QueueHandler {
 
 	/**
 	 * MessageSender with active connection.
@@ -43,7 +43,7 @@ public class OutputQueue extends QueueHandler {
 	 * @see {@link MessageSender#connect()},
 	 *      {@link MessageSender#connect(MessageDestination, MessageListenerInterface)}
 	 */
-	public OutputQueue(MessageDestination remoteDest, MessageSender msgSender) {
+	public OutputQueueHandler(MessageDestination remoteDest, MessageSender msgSender) {
 		super(remoteDest);
 		this.msgSender = msgSender;
 	}
