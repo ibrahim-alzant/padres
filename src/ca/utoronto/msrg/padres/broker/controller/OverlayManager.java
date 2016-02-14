@@ -24,10 +24,10 @@ import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCoreException;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.ConnectionListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.Advertisement;
 import ca.utoronto.msrg.padres.common.message.AdvertisementMessage;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;

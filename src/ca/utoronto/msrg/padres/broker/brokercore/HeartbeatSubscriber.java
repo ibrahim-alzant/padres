@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.controller.LinkInfo;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.Message;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 import ca.utoronto.msrg.padres.common.message.MessageType;

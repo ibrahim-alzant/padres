@@ -1,9 +1,9 @@
 package ca.utoronto.msrg.padres.test.junit.tester;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 
 /**

@@ -1,10 +1,10 @@
 package ca.utoronto.msrg.padres.test.junit.tester;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCoreException;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
 import ca.utoronto.msrg.padres.broker.controller.OverlayManager;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 
 /**

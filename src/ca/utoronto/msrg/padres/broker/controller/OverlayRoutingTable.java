@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 import ca.utoronto.msrg.padres.common.message.MessageDestination.DestinationType;
 

@@ -33,9 +33,9 @@ import javax.swing.Timer;
 import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
+import ca.utoronto.msrg.padres.broker.brokercore.OutputQueue;
 import ca.utoronto.msrg.padres.broker.controller.OverlayRoutingTable;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.Advertisement;
 import ca.utoronto.msrg.padres.common.message.AdvertisementMessage;
 import ca.utoronto.msrg.padres.common.message.Message;

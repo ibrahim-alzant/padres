@@ -5,7 +5,6 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.broker.controller.LinkInfo;
-import ca.utoronto.msrg.padres.common.comm.OutputQueue;
 import ca.utoronto.msrg.padres.common.message.Advertisement;
 import ca.utoronto.msrg.padres.common.message.AdvertisementMessage;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
