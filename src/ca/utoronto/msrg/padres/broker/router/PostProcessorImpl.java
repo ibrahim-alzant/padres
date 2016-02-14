@@ -3,7 +3,6 @@ package ca.utoronto.msrg.padres.broker.router;
 import java.util.Set;
 
 import ca.utoronto.msrg.padres.broker.brokercore.BrokerCore;
-import ca.utoronto.msrg.padres.broker.brokercore.SenderTagger;
 import ca.utoronto.msrg.padres.broker.order.TotalOrderEngine;
 import ca.utoronto.msrg.padres.broker.topk.TopkEngine;
 import ca.utoronto.msrg.padres.broker.topk.count.DesynchronizedChunkTopkEngine;

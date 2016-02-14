@@ -1,4 +1,4 @@
-package ca.utoronto.msrg.padres.broker.brokercore;
+package ca.utoronto.msrg.padres.broker.router;
 
 import ca.utoronto.msrg.padres.common.message.SubscriptionMessage;
 
