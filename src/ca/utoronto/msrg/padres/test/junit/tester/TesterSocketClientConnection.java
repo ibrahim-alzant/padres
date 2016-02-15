@@ -2,7 +2,7 @@ package ca.utoronto.msrg.padres.test.junit.tester;
 
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.MessageListenerInterface;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.socket.SocketClientConnection;
 import ca.utoronto.msrg.padres.common.comm.socket.SocketMessageSender;
 import ca.utoronto.msrg.padres.common.comm.socket.SocketPipe;

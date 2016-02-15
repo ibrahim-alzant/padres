@@ -19,7 +19,7 @@ import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIAddress;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIServerInterface;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIMessageListenerInterfce;

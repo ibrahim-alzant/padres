@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.MessageListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;

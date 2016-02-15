@@ -1,6 +1,6 @@
 package ca.utoronto.msrg.padres.common.comm.socket.message;
 
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.message.Message;
 
 public class PubSubMessage extends SocketMessage {

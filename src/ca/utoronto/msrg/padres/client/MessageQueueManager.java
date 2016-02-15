@@ -5,7 +5,7 @@ import java.util.Set;
 
 import ca.utoronto.msrg.padres.common.comm.MessageListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.message.Message;
 
 /**

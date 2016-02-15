@@ -11,7 +11,7 @@ import ca.utoronto.msrg.padres.common.comm.CommSystem;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.ConnectionListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageListenerInterface;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.message.Message;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 

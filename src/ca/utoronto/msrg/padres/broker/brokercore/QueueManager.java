@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
 import ca.utoronto.msrg.padres.broker.controller.OverlayManager;
 import ca.utoronto.msrg.padres.broker.monitor.SystemMonitor;
 import ca.utoronto.msrg.padres.common.comm.CommSystem;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.MessageListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
 import ca.utoronto.msrg.padres.common.message.Message;

@@ -1,6 +1,6 @@
 package ca.utoronto.msrg.padres.common.comm;
 
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.message.Message;
 
 /**

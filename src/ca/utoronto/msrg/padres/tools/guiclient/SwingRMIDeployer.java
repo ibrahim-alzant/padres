@@ -46,7 +46,7 @@ import javax.swing.JTextField;
 import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIAddress;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIMessageListenerInterfce;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIServerInterface;

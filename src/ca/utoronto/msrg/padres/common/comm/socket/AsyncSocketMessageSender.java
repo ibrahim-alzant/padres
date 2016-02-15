@@ -14,7 +14,7 @@
 package ca.utoronto.msrg.padres.common.comm.socket;
 
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.socket.message.PubSubMessage;
 import ca.utoronto.msrg.padres.common.message.Message;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;

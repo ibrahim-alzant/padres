@@ -2,7 +2,7 @@ package ca.utoronto.msrg.padres.common.comm;
 
 import org.apache.log4j.Logger;
 
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.message.Message;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 

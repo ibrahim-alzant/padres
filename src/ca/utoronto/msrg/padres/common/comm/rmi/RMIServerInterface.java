@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 import ca.utoronto.msrg.padres.common.comm.ConnectionListenerInterface;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.message.Message;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 

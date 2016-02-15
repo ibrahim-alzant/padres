@@ -33,7 +33,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIServerInterface;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 import ca.utoronto.msrg.padres.common.message.Publication;

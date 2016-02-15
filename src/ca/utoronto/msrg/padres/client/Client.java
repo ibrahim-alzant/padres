@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.log4j.Logger;
 
 import ca.utoronto.msrg.padres.common.comm.CommSystem;
-import ca.utoronto.msrg.padres.common.comm.CommSystem.HostType;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
 import ca.utoronto.msrg.padres.common.comm.MessageQueue;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
