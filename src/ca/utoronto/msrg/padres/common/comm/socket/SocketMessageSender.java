@@ -198,6 +198,7 @@ public class SocketMessageSender extends MessageSender {
 	 * @param messageId
 	 *            the new messageId, as received by the socketClientConnection.
 	 */
+	//TODO check if this operation is needed in the new implementation
 	public void messageIDReceived(String messageId) {
 		sendToReturnVal = messageId;
 		while (!waitingForNotify) {

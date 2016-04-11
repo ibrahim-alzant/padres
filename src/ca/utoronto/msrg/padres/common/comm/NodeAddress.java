@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import ca.utoronto.msrg.padres.common.comm.CommSystem.CommSystemType;
+import ca.utoronto.msrg.padres.common.comm.netty.common.NioAddress;
 import ca.utoronto.msrg.padres.common.comm.rmi.RMIAddress;
 import ca.utoronto.msrg.padres.common.comm.socket.SocketAddress;
 
@@ -33,6 +34,7 @@ public abstract class NodeAddress {
 	protected int port;
 
 	protected String remoteID;
+	
 
 	/**
 	 * Constructor to create the node address from the given protocol specific URI string
@@ -54,6 +56,18 @@ public abstract class NodeAddress {
 
 	public CommSystemType getType() {
 		return type;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public String getRemoteID() {
+		return remoteID;
 	}
 
 	public String getNodeURI() {
@@ -103,6 +117,8 @@ public abstract class NodeAddress {
 			return new RMIAddress(nodeURI);
 		case SOCKET:
 			return new SocketAddress(nodeURI);
+		case NIO:
+			return new NioAddress(nodeURI); 
 		default:
 			throw new CommunicationException("Communication system type not recognized");
 		}
@@ -126,6 +142,9 @@ public abstract class NodeAddress {
 			break;
 		case SOCKET:
 			addressFormat = SocketAddress.SOCKET_REG_EXP;
+			break;
+		case NIO:
+			addressFormat = NioAddress.NIO_REG_EXP; 
 			break;
 		default:
 			throw new CommunicationException("Address format not recognized");

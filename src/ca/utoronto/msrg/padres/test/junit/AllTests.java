@@ -53,7 +53,7 @@ public class AllTests {
     static {
         // get test specific configuration
         testVersion = Integer.parseInt(System.getProperty("test.version", "7"));
-        commProtocol = System.getProperty("test.comm_protocol", "rmi");
+        commProtocol = System.getProperty("test.comm_protocol", "socket");
         System.out.println("test version: " + testVersion + "; comm. protocol: " + commProtocol);
         // load broker configurations
         try {

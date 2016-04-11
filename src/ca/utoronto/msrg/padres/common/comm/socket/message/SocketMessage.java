@@ -5,7 +5,8 @@ import java.io.Serializable;
 public class SocketMessage implements Serializable {
 
 	private static final long serialVersionUID = 5122229262760141130L;
-
+	
+	
 	public enum SocketMessageType {
 		CONNECT, CONNECT_REPLY, PUB_SUB, PUB_SUB_REPLY;
 	}
@@ -13,7 +14,7 @@ public class SocketMessage implements Serializable {
 	protected SocketMessageType msgType;
 
 	public SocketMessage(SocketMessageType msgType) {
-		this.msgType = msgType;
+		this.msgType = msgType;		
 	}
 
 	public SocketMessageType getMessageType() {
@@ -23,5 +24,6 @@ public class SocketMessage implements Serializable {
 	public String toString() {
 		return msgType.toString();
 	}
-
+	
+	
 }

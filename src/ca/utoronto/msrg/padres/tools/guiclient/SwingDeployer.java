@@ -389,7 +389,7 @@ public class SwingDeployer extends GUIClient{
 			// overwrite the client configurations from the config file with configuration
 			// parameters from the command line
 			userConfig.overwriteWithCmdLineArgs(cmdLine);
-
+			userConfig.clientID = "Client2";
 			// create the client
 			final SwingDeployer swingDeployer = new SwingDeployer(userConfig);
 			// create the GUI for the client

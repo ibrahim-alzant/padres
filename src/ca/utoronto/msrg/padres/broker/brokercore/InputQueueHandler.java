@@ -89,6 +89,7 @@ public class InputQueueHandler extends QueueHandler {
 		// NOTE: do the processing through router first before clearing the messagesToRoute data
 		// structure. It is necessary for test cases.
 		Set<Message> routedMessages = router.handleMessage(msg);
+		System.out.println(msg.getType());//TODO TBR
 		messagesToRoute.clear();
 		messagesToRoute.addAll(routedMessages);
 

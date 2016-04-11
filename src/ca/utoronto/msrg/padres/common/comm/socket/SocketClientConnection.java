@@ -43,6 +43,8 @@ public class SocketClientConnection extends Thread {
 	protected MessageListenerInterface listener;
 
 	protected MessageDestination clientDestination;
+	
+	private static int counter;
 
 	/*
 	 * Reference to the message sender associated with this clientConnection.
@@ -177,6 +179,10 @@ public class SocketClientConnection extends Thread {
 							&& !(pubSubMsg instanceof PublicationMessage)) {
 						clientPipe.write(new PubSubReplyMessage(pubSubMsg.getMessageID()));
 					}
+					pubSubSocketMsg.setTimeofReceiving(System.currentTimeMillis());
+	    			System.out.println("number of clients = " + ++counter + " and totalTime is "+pubSubSocketMsg.getTotalTime() 
+	    					+ " time of sending : "+pubSubSocketMsg.getTimeOfSending() + " time of receiving :" +pubSubSocketMsg.getTimeOfReceiving());
+					System.out.println("======================================================");
 				}
 			}
 			// Close the socket. We are done with this client!

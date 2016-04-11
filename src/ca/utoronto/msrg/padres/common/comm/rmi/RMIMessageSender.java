@@ -137,6 +137,8 @@ public class RMIMessageSender extends MessageSender {
 			throw new CommunicationException(e);
 		}
 	}
+	
+	//TODO CLEAN
 
 	@Override
 	public String getID() throws CommunicationException {

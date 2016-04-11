@@ -101,7 +101,7 @@ public abstract class MessageSender {
 	 * @return The ID of the remote entity
 	 * @throws CommunicationException
 	 */
-	public abstract String getID() throws CommunicationException;
+public abstract String getID() throws CommunicationException;
 
 	/**
 	 * To send a message to the remote entity (to a server or a client). This method is a wrapper

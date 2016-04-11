@@ -4,6 +4,7 @@ import ca.utoronto.msrg.padres.broker.brokercore.BrokerCoreException;
 import ca.utoronto.msrg.padres.broker.brokercore.OutputQueueHandler;
 import ca.utoronto.msrg.padres.broker.controller.OverlayManager;
 import ca.utoronto.msrg.padres.common.comm.CommunicationException;
+import ca.utoronto.msrg.padres.common.comm.HostType;
 import ca.utoronto.msrg.padres.common.comm.MessageSender;
 import ca.utoronto.msrg.padres.common.message.MessageDestination;
 
@@ -41,7 +42,7 @@ class TesterOverlayManager extends OverlayManager {
 	protected MessageSender createMessageSenderAndConnect(String toBrokerURI) throws CommunicationException {
 		try {
 			MessageSender msgSender =
-				brokerCore.getCommSystem().getMessageSender(toBrokerURI);
+				brokerCore.getCommSystem().getMessageSender(toBrokerURI,HostType.SERVER);
 			msgSender.connect();
 			return msgSender;
 		} catch (CommunicationException x) {

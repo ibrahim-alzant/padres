@@ -10,9 +10,13 @@ public class PubSubMessage extends SocketMessage {
 	protected HostType sourceHostType;
 
 	protected Message message;
-
+	private final long timeOfSending;
+	private long timeOfReceiving;
+	private long totalTime ;
+	
 	public PubSubMessage(Message message, HostType hostType) {
 		super(SocketMessageType.PUB_SUB);
+		this.timeOfSending = System.currentTimeMillis();	
 		this.sourceHostType = hostType;
 		this.message = message;
 	}
@@ -33,5 +37,23 @@ public class PubSubMessage extends SocketMessage {
 		return String.format("[%s] from %s:  %s", msgType.toString(), sourceHostType.toString(),
 				message);
 	}
+	
+	public void setTimeofReceiving(long timeOfReceiving){
+		this.timeOfReceiving = timeOfReceiving;
+		this.totalTime =  timeOfReceiving - timeOfSending;
+	}
+	
+	public long getTotalTime(){
+		return this.totalTime;
+	}
+	
+	public long getTimeOfSending(){
+		return this.timeOfSending;
+	}
+	
+	public long getTimeOfReceiving(){
+		return this.timeOfReceiving;
+	}
+
 
 }

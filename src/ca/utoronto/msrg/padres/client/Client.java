@@ -584,7 +584,7 @@ public class Client {
 			} else {
 				if (brokerStates.size() == 0)
 					setDefaultBrokerAddress(brokerAddr);
-				MessageSender msgSender = commSystem.getMessageSender(brokerURI);
+				MessageSender msgSender = commSystem.getMessageSender(brokerURI,HostType.CLIENT);
 				BrokerState bState = addBrokerState(brokerAddr, msgSender);
 				
 				msgSender.connect(
